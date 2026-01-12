@@ -36,13 +36,3 @@ values (1, 4), (2, 1), (3, 2), (5, 3);
 
 insert into collection_track(collection_id, track_id)
 values (1, 1), (1, 2), (2, 3), (2, 4), (3, 5), (3, 6), (4, 7), (4, 8);
-
-
-
-
-
-
-
-
-
-
