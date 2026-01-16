@@ -19,21 +19,21 @@ SELECT title
 FROM track
 WHERE title ILIKE '%мой%' OR title ILIKE '%my%';
 
-select g.name as genre_name,
-	count(ag.artist_id) as artist_count
-from genre g
-left join artistgenre ag on g.genre_id = ag.genre_id
-group by g.genre_id, g.name;
+SELECT g.name AS genre_name,
+	COUNT(ag.artist_id) AS artist_count
+FROM genre g
+LEFT JOIN artistgenre ag ON g.genre_id = ag.genre_id
+GROUP BY g.genre_id, g.name;
 
-select count(t.track_id) as track_count
-from track t
-join album a on t.album_id = a.album_id 
-where a.release_year between 2019 and 2020;
+SELECT COUNT(t.track_id) AS track_count
+FROM track t
+JOIN album a ON t.album_id = a.album_id 
+where a.release_year BETWEEN 2019 AND 2020;
 
-select a.title as album_title,
-	round(AVG(t.duration), 2) as avg_duration
-from album a
-join track t on a.album_id = t.album_id
+SELECT a.title AS album_title,
+	ROUND(AVG(t.duration), 2) AS avg_duration
+FROM album a
+JOIN track t ON a.album_id = t.album_id
 group by a.album_id, a.title; 
 
 SELECT name
