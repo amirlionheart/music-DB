@@ -17,7 +17,8 @@ WHERE name NOT LIKE '% %';
 
 SELECT title
 FROM track
-WHERE title ILIKE '%мой%' OR title ILIKE '%my%';
+WHERE string_to_array(lower(title), ' ')
+      && ARRAY['my', 'мой'];
 
 SELECT g.name AS genre_name,
 	COUNT(ag.artist_id) AS artist_count
@@ -51,3 +52,4 @@ JOIN track t ON ct.track_id = t.track_id
 JOIN album al ON t.album_id = al.album_id
 JOIN artistalbum aa ON al.album_id = aa.album_id
 WHERE aa.artist_id = 2;
+
